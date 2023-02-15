@@ -11,7 +11,7 @@ jobs:
   dev-deploy:
     runs-on: "ubuntu-latest"
     steps:
-      # - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "dev"
         uses: chrnorm/deployment-action@v2
         id: deployment
@@ -25,6 +25,7 @@ jobs:
     needs: [dev-deploy]
     if: github.ref == 'refs/heads/main'
     steps:
+      - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "stage"
         uses: chrnorm/deployment-action@v2
         id: deployment
@@ -39,6 +40,7 @@ jobs:
     needs: [dev-deploy,stage-deploy]
     if: github.ref == 'refs/heads/main'
     steps:
+      - uses: actions/checkout@v3.3.0
       - name: Create GitHub deployment for "prod"
         uses: chrnorm/deployment-action@v2
         id: deployment
