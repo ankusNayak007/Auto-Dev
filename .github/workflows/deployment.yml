@@ -21,8 +21,8 @@ jobs:
         with:
           token: '${{ github.token }}'
           state: 'in_progress'
-          # deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          deployment-id: ${{ github.event.deployment.id }} # ${{ github.event.deployment_id }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          # deployment-id: ${{ github.event.deployment.id }} # ${{ github.event.deployment_id }}
       
       - name: Update deployment status (success)
         if: success()
@@ -30,8 +30,8 @@ jobs:
         with:
           token: '${{ github.token }}'
           state: 'success'
-          # deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          deployment-id: ${{ github.event.deployment.id }} # ${{ github.event.deployment_id }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          # deployment-id: ${{ github.event.deployment.id }} # ${{ github.event.deployment_id }}
 
       - name: Update deployment status (failure)
         if: failure()
@@ -40,5 +40,5 @@ jobs:
           token: '${{ github.token }}'
           # environment-url: http://my-app-url.com
           state: 'failure'
-          # deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          deployment-id: ${{ github.event.deployment.id }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          # deployment-id: ${{ github.event.deployment.id }}
