@@ -18,7 +18,6 @@ jobs:
         id: deployment
         with:
           token: '${{ github.token }}'
-          asas:asasasas
           # environment: dev
           # url: https://github.com
 
